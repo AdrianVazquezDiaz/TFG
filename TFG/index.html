@@ -68,6 +68,31 @@
             margin: 20px auto;
             padding: 0 20px;
         }
+        h2 {
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            margin-inline: 60px;
+        }
+        .img1 {
+            width: 50%;
+            height: auto;
+            margin-left: 48%;
+        }
+        .img2 {
+            width: 50%;
+            height: auto;
+            margin-right: 48%;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Ajusta según necesites */
+        }
+        .image-container div {
+            margin: 0 10px; /* Espacio entre las imágenes */
+        }
         footer {
             background-color: #45a049;
             color: #fff;
@@ -109,7 +134,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li class="dropdown">
                 <a>Libros</a>
                 <div class="dropdown-content">
@@ -117,28 +142,28 @@
                     <a href="romance.html">Romance</a>
                     <a href="infantil.html">Infantil</a>
                     <a href="ciencia.html">Ciencia y Tecnología</a>
-                    <a href="#">Historia</a>
-                    <a href="#">Arte y Diseño</a>
+                    <a href="historia.html">Historia</a>
+                    <a href="arte.html">Arte y Diseño</a>
                 </div>
             </li>
-            <li><a href="#">Más Vendidos</a></li>
             <li><a href="login.html">Login</a></li>
-            <li><a href="#">Mi pedido</a></li>
+            <li><a href="carrito.html">Mi pedido</a></li>
         </ul>
     </nav>
     <div class="container">
-        <h2>Libros Más Vendidos del Año</h2>
-        <ol>
-            <li>Libro1</li>
-            <li>Libro2</li>
-            <li>Libro3</li>
-        </ol>
-        <h2>¡¡ULTIMAS NOVEDADES!!</h2>
-        <ol>
-            <li>Libro1</li>
-            <li>Libro2</li>
-            <li>Libro3</li>
-        </ol>
+        <h2>¡Bienvenido a TodoLibros!</h2>
+        <p>¡Bienvenido a nuestra nueva librería! Estamos encantados de abrir nuestras puertas y dar la bienvenida a todos los amantes de los libros. Aquí encontrarás un mundo de historias 
+            por descubrir, conocimiento por explorar y aventuras por vivir entre las páginas. Estamos emocionados de ser parte de tu viaje literario y esperamos que este espacio 
+            se convierta en tu refugio favorito. ¡Adelante, sumérgete en la magia de la lectura y haz de esta librería tu hogar entre libros!</p>
+        <h2>¡¡PROMOCIONES!!</h2>
+    </div>
+    <div class="image-container">
+        <div>
+            <img src="fotos/2x1.png" class="img1">
+        </div>
+        <div>
+            <img src="fotos/20%.png" class="img2">
+        </div>
     </div>
     <footer>
         <div class="footer-content">

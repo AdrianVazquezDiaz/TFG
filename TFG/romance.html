@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librería "NombraTuLibrería"</title>
     <style>
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,37 +13,45 @@
             min-height: 100vh;
             position: relative;
         }
+
         header {
             background-color: #45a049;
             color: #fff;
             padding: 10px 0;
             text-align: center;
         }
+
         nav {
             background-color: #104d13;
             color: #fff;
             padding: 10px 0;
             text-align: center;
         }
+
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
+
         nav ul li {
             display: inline;
             margin-right: 20px;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
         }
+
         nav ul li a:hover {
             text-decoration: underline;
         }
+
         .dropdown {
             position: relative;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -53,6 +61,7 @@
             min-width: 160px;
             z-index: 1;
         }
+
         .dropdown-content a {
             color: #fff;
             padding: 12px 16px;
@@ -60,14 +69,18 @@
             display: block;
             text-align: left;
         }
+
         .dropdown-content a:hover {
             background-color: #333;
         }
+
         .container {
             max-width: 800px;
-            margin: 80px auto 150px; /* Aumento del margen inferior */
+            margin: 80px auto 150px;
+            /* Aumento del margen inferior */
             padding: 0 20px;
         }
+
         footer {
             background-color: #45a049;
             color: #fff;
@@ -96,17 +109,20 @@
         .footer-section h3 {
             margin-top: 0;
         }
-        .footer-section a{
+
+        .footer-section a {
             color: #d0e7d1;
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .book-container {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             margin-top: 20px;
         }
+
         .book {
             width: 30%;
             background-color: #f9f9f9;
@@ -115,18 +131,38 @@
             padding: 20px;
             margin-bottom: 20px;
         }
+
         .book h3 {
             margin-top: 0;
         }
+
         .book img {
             width: 100%;
-            margin-bottom: 10px; /* Espacio para la imagen */
+            margin-bottom: 10px;
+            /* Espacio para la imagen */
         }
+
         .book:last-child {
-            margin-bottom: 50px; /* Mayor distancia para el libro 5 */
+            margin-bottom: 50px;
+            /* Mayor distancia para el libro 5 */
         }
+        .mensaje {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #45a049;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Asegúrate de que está encima de otros elementos */
+        color: #fff;
+    }
     </style>
 </head>
+
 <body>
     <header>
         <h1>TodoLibros</h1>
@@ -145,20 +181,22 @@
                     <a href="arte.html">Arte y Diseño</a>
                 </div>
             </li>
-            <li><a href="#">Más Vendidos</a></li>
             <li><a href="login.html">Login</a></li>
-            <li><a href="#">Mi pedido</a></li>
+            <li><a href="carrito.html">Mi pedido</a></li>
         </ul>
     </nav>
     <div class="container">
         <div class="book-container">
             <div class="book">
-                <h3>Libro 1</h3>
+                <h3 id="titulo">Libro 1</h3>
                 <img src="imagen_libro1.jpg" alt="Imagen libro 1">
                 <p>Autor: Autor 1</p>
                 <p>Año de publicación: 2023</p>
                 <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Precio: $20</p>
+                <p id="precio">Precio: 20€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 1', '20')">Añadir al Pedido</button>
+
+
             </div>
             <div class="book">
                 <h3>Libro 2</h3>
@@ -166,40 +204,50 @@
                 <p>Autor: Autor 2</p>
                 <p>Año de publicación: 2022</p>
                 <p>Descripción: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Precio: $25</p>
+                <p>Precio: 25€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 2', '25')">Añadir al Carrito</button>
             </div>
             <div class="book">
                 <h3>Libro 3</h3>
                 <img src="imagen_libro3.jpg" alt="Imagen libro 3">
                 <p>Autor: Autor 3</p>
                 <p>Año de publicación: 2021</p>
-                <p>Descripción: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Precio: $30</p>
+                <p>Descripción: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.</p>
+                <p>Precio: 30€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 3', '30')">Añadir al Carrito</button>
             </div>
             <div class="book">
                 <h3>Libro 4</h3>
                 <img src="imagen_libro4.jpg" alt="Imagen libro 4">
                 <p>Autor: Autor 4</p>
                 <p>Año de publicación: 2020</p>
-                <p>Descripción: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <p>Precio: $35</p>
+                <p>Descripción: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.</p>
+                <p>Precio: 40€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 4', '40')">Añadir al Carrito</button>
             </div>
             <div class="book">
                 <h3>Libro 5</h3>
                 <img src="imagen_libro5.jpg" alt="Imagen libro 5">
                 <p>Autor: Autor 5</p>
                 <p>Año de publicación: 2019</p>
-                <p>Descripción: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Precio: $40</p>
+                <p>Descripción: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum.</p>
+                <p>Precio: 40€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 5', '40')">Añadir al Carrito</button>
             </div>
             <div class="book">
                 <h3>Libro 6</h3>
                 <img src="imagen_libro6.jpg" alt="Imagen libro 6">
                 <p>Autor: Autor 6</p>
                 <p>Año de publicación: 2019</p>
-                <p>Descripción: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Precio: $40</p>
+                <p>Descripción: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit anim id est laborum.</p>
+                <p>Precio: 40€</p>
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito('Libro 6', '40')">Añadir al Carrito</button>
             </div>
+            <div class="mensaje" id="mensaje">Se ha añadido al pedido</div>
         </div>
     </div>
     <footer>
@@ -225,6 +273,7 @@
 
     <script>
         // JavaScript para mostrar y ocultar el menú desplegable
+        
         document.addEventListener('DOMContentLoaded', function() {
             var dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(function(dropdown) {
@@ -236,6 +285,39 @@
                 });
             });
         });
+        function agregarAlCarrito(nombre, precio) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var item = {
+                nombre: nombre,
+                precio: precio
+            };
+            carrito.push(item);
+            localStorage.setItem('carrito', JSON.stringify(carrito));;
+        };
+
+        function mostrarMensaje() {
+        var mensaje = document.getElementById('mensaje');
+        mensaje.style.display = 'block';
+
+        setTimeout(function() {
+            mensaje.style.display = 'none';
+        }, 3000);
+    }
+    var btnAñadirCarrito = document.getElementById('btnAñadirCarrito');
+    btnAñadirCarrito.addEventListener('click', function() {
+        mostrarMensaje();
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('mouseover', function () {
+                    this.querySelector('.dropdown-content').style.display = 'block';
+                });
+                dropdown.addEventListener('mouseout', function () {
+                    this.querySelector('.dropdown-content').style.display = 'none';
+                });
+            });             
+    }); 
+});   
     </script>
 </body>
 </html>
