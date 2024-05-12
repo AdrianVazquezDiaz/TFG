@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería "NombraTuLibrería"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        header {
+            background-color: #45a049;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #104d13;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #a1c935;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto 150px;
+            /* Aumento del margen inferior */
+            padding: 0 20px;
+        }
+
+        footer {
+            background-color: #45a049;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .footer-section {
+            padding: 10px;
+            border-right: 1px solid #ffffff;
+        }
+
+        .footer-section:last-child {
+            border-right: none;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+        }
+
+        .footer-section a {
+            color: #d0e7d1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .book-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .book {
+            width: 30%;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .book h3 {
+            margin-top: 0;
+        }
+
+        .book img {
+            width: 100%;
+            margin-bottom: 10px;
+            /* Espacio para la imagen */
+        }
+
+        .book:last-child {
+            margin-bottom: 50px;
+            /* Mayor distancia para el libro 5 */
+        }
+        .mensaje {
+        display: none; /* Inicialmente oculto */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #45a049;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999; /* Asegúrate de que está encima de otros elementos */
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>TodoLibros</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a>Libros</a>
+                <div class="dropdown-content">
+                    <a href="ficcion.html">Ficción</a>
+                    <a href="romance.html">Romance</a>
+                    <a href="infantil.html">Infantil</a>
+                    <a href="ciencia.html">Ciencia y Tecnología</a>
+                    <a href="historia.html">Historia</a>
+                    <a href="arte.html">Arte y Diseño</a>
+                </div>
+            </li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="carrito.html">Mi pedido</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="book-container">
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="book">
+                <h3><?php echo $nombreLibro;?></h3>
+                <img src="<?php echo $imagenLibro;?$>">
+                <p>Autor: <?php echo $autorLibro;?></p>
+                <p>Fecha de publicacion: <?php echo $fechaLibro;?></p>
+                <p>Descripción: <?php echo $descripcionLibro;?></p>
+                <p>Codigo: <?php echo $idLibro;?></p>
+                <p id="precio"> Precio: <?php echo $precioLibro;?></p>  
+                <button id="btnAñadirCarrito" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+            </div>
+            <div class="mensaje" id="mensaje">Se ha añadido al pedido</div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Donde estamos</h3>
+                <p>Calle Salamanca, 15<br> Madrid, España</p>
+            </div>
+            <div class="footer-section">
+                <h3>Teléfono</h3>
+                <p>+34 91 123 45 67</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><a href="mailto:correo@tulibreria.com">soporte@todolibros.com</a>.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de atención</h3>
+                <p>Lunes a viernes: 9:00 - 18:00<br></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para mostrar y ocultar el menú desplegable
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(function(dropdown) {
+                dropdown.addEventListener('mouseover', function() {
+                    this.querySelector('.dropdown-content').style.display = 'block';
+                });
+                dropdown.addEventListener('mouseout', function() {
+                    this.querySelector('.dropdown-content').style.display = 'none';
+                });
+            });
+        });
+        function agregarAlCarrito(nombre, precio, id) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var item = {
+                $nombreLibro,
+                $precioLibro
+            };
+            carrito.push(item);
+            localStorage.setItem('carrito', JSON.stringify(carrito));;
+        };
+        function mostrarMensaje() {
+        var mensaje = document.getElementById('mensaje');
+        mensaje.style.display = 'block';
+
+        setTimeout(function() {
+            mensaje.style.display = 'none';
+        }, 3000);
+    }
+    var btnAñadirCarrito = document.getElementById('btnAñadirCarrito');
+
+    // Agregar un controlador de eventos al botón
+    btnAñadirCarrito.addEventListener('click', function() {
+        mostrarMensaje();
+        document.addEventListener('DOMContentLoaded', function () {
+            var dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(function (dropdown) {
+                dropdown.addEventListener('mouseover', function () {
+                    this.querySelector('.dropdown-content').style.display = 'block';
+                });
+                dropdown.addEventListener('mouseout', function () {
+                    this.querySelector('.dropdown-content').style.display = 'none';
+                });
+            });             
+    }); 
+});   
+    </script>
+</body>
+</html>

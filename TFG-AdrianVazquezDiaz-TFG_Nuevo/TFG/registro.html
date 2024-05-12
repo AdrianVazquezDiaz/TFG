@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .radio-group label::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border: 1px solid #4CAF50;
+            border-radius: 50%;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        input[type="radio"]:checked + label::before {
+            background-color: #4CAF50;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro</h1>
+        <form action="CONEXION.PHP" method="post">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label>Género</label>
+            <div class="radio-group">
+                <input type="radio" id="hombre" name="gender" value="Hombre" required>
+                <label for="hombre">Hombre</label>
+
+                <input type="radio" id="mujer" name="gender" value="Mujer" required>
+                <label for="mujer">Mujer</label>
+
+                <input type="radio" id="otro" name="gender" value="Otro" required>
+                <label for="otro">Otro</label>
+            </div><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+
+            <input type="submit" value="Enviar">
+
+        </form>
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </div>
+</body>
+</html>
